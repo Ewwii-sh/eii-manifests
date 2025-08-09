@@ -2,5 +2,6 @@
 
 [metadata]
 name = "eii-test"
-version = 1.0
-install_url = "https://raw.githubusercontent.com/Ewwii-sh/eii-manifests/main/test/clone-repo.sh"
+type = "library"
+src = "https://github.com/Ewwii-sh/eii-manifests.git"
+files = ["tests/lib-test/"]
