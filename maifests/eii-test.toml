@@ -1,0 +1,6 @@
+# Just a manifest to test
+
+[metadata]
+name = "eii-test"
+version = 1.0
+install_url = "https://github.com/Ewwii-sh/eii-manifests/tree/main/test/clone-repo.sh"
