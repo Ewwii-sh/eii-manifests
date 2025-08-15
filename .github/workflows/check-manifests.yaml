@@ -1,0 +1,27 @@
+name: Validate Manifests
+
+on:
+  push:
+    paths:
+      - 'manifests/**'
+  pull_request:
+    paths:
+      - 'manifests/**'
+
+jobs:
+  check-toml-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Ensure only .toml files in manifests
+        run: |
+          invalid_files=$(find ./manifests -type f ! -name "*.toml")
+          if [ -n "$invalid_files" ]; then
+            echo "Error: The following files are not .toml:"
+            echo "$invalid_files"
+            exit 1
+          else
+            echo "All files in ./manifests are valid .toml files."
+          fi
