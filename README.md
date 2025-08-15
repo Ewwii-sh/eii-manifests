@@ -1,6 +1,17 @@
 # eii-manifests
 
-Manifest packages for eiipm.
+Manifest files that **eiipm** will use to install a package.
+
+Here is a simple digram showing how **eiipm** uses **eii-manifests**:
+
+```mermaid
+graph LR
+    A[eiipm install foo] --> B[Access Ewwii-sh/eii-manifests repository]
+    B --> C{Does manifests/foo.toml exist?}
+    C -- Yes --> D[Read foo.toml and follow instructions]
+    C -- No --> E[Exit with error]
+    D --> F[Exit successfully]
+```
 
 ## Adding your package to manifests
 
