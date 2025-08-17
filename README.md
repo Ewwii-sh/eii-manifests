@@ -15,37 +15,72 @@ graph LR
 
 ## Adding your package to manifests
 
-Made an awesome binary, library or themes for ewwii and want to publish it to the official manifests? That's great to hear! Your contributions are invaluable for the community and registering it to `eii-manifests` will let anyone download your package easily using eiipm. 
 
-To add a package to the manifests, you would need first need to **[fork](https://github.com/Ewwii-sh/eii-manifests/fork)** this repository. 
 
-Now that you have forked this repo, go to your forked repo and create a file in `./manifests/` with the name of your project and should end in the `.toml` file extension. For example, if you want to register a package named "foo" to the manifests, create a file named `foo.toml` in `./manifests/`. 
+### Step 1: Fork the Repository
 
-And now comes the most important part. Adding instructions in the file you just created. It is extremely important to not mess up as this is the file which **eiipm** will read to install your package.
+You must first **[fork the `eii-manifests` repo](https://github.com/Ewwii-sh/eii-manifests/fork)**. This gives you your own copy of the repo which you can edit freely.
 
-Here is an example manifest to get you familiar with the structure:
+---
+
+### Step 2: Create Your Manifest File
+
+1. Navigate to `./manifests/` in your forked repo.
+2. Create a TOML file named after your package. Example: `foo.toml` for a package named `foo`.
+3. This file is **critical**: `eiipm` reads it directly to know how to install your package.
+
+---
+
+### Step 3: Fill in Metadata
+
+Here’s the **core `[metadata]` structure**:
 
 ```toml
 [metadata]
-name = "ewwii"
-type = "binary"
-src = "https://github.com/Ewwii-sh/ewwii.git"
-build = "cargo build --release"
-files = ["target/release/ewwii"]
+name = "your_package_name"
+type = "binary" # or "library" / "theme"
+src = "https://github.com/yourusername/yourrepo.git"
+build = "optional build command, e.g., cargo build --release"
+files = ["list of files to install"]
 ```
 
-This is the manifest of the official `ewwii` binary. Let's get into depth on what each metadata in this toml file should be.
+#### Field Breakdown
 
-- **[metadata]:** This is the table which **should** contain all metadata.
-- **name:** This should be the name of your binary.
-- **type:** This should be your package type (supported types: binary, library, theme). This metadata is very crutial as this is the one which eiipm uses to decide where it should install this package to. A binary will be installed to `~/.eiipm/bin/`, a library will be installed to `~/.eiipm/lib/<libname>/` and a theme will be installed to the current directory.
-- **src:** This should contain the url to your github repository. You can get this information by clicking the **code** button and then copying the HTTP url in your GitHub repo.
-- **build:** This is an optional metadata which **eiipm** will run to build your project before installing it.
-- **files:** This should contain all the files which your should be installed. If your type metadata is "binary", then all the files will be copied to `~/.eiipm/bin/`. If your type metadata is "library", then all the files will be copied to `~/.eiipm/lib/<libname>/`. And finally, if your type metadata is "theme", then all the files will be copied to the current directory.
+* **name:** Exact name of your package. Should match what you want users to type with `eiipm`.
+* **type:** Must be one of `binary`, `library`, or `theme`. This determines install paths:
 
-**Here is an example for each type:**
+  * `binary` --> `~/.eiipm/bin/`
+  * `library` --> `~/.eiipm/lib/<libname>/`
+  * `theme` --> installed in the current working directory.
+* **src:** GitHub URL of the repository. Use HTTPS to avoid SSH complications.
+* **build:** Optional. Any command needed to compile/build the package before installation.
+* **files:** Crucial. Lists **exactly** what should be installed.
 
-- **type: binary**
+---
+
+### Step 4: Advanced `files` Options
+
+You can specify files in multiple ways:
+
+```toml
+files = [
+  "./src/foo.scss", # simple copy
+  "./src/bar.css", # simple copy
+  { src = "./path/to/file" }, # preserve relative path
+  { src = "./path/to/file2", dest = "./another/path" } # copy to a custom location
+]
+```
+
+**Notes:**
+
+* `dest` is relative to the target install path (e.g., for a binary, `~/.eiipm/bin/<dest>`).
+* Preserving relative paths is useful for libraries with nested directories.
+
+---
+
+### Step 5: Examples by Type
+
+**Binary Example:**
 
 ```toml
 [metadata]
@@ -56,7 +91,7 @@ build = "cargo build --release"
 files = ["target/release/foo"]
 ```
 
-- **type: library**
+**Library Example:**
 
 ```toml
 [metadata]
@@ -66,7 +101,7 @@ src = "https://github.com/repo/bar.git"
 files = ["./src/foo.rhai", "./src/foo2.rhai", "./src/baz.rhai"]
 ```
 
-- **type: theme**
+**Theme Example:**
 
 ```toml
 [metadata]
@@ -75,3 +110,13 @@ type = "theme"
 src = "https://github.com/repo/baz.git"
 files = ["./src/foo.scss", "./src/bar.css", "./src/ewwii.scss"]
 ```
+
+---
+
+### Step 6: Submit Your Contribution
+
+After adding and committing your manifest to your fork:
+
+1. Push the fork to GitHub.
+2. Open a pull request (PR) to the main `eii-manifests` repo.
+3. Include any notes about special build instructions or unusual file structures.
