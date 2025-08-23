@@ -3,4 +3,4 @@ name = "statictranspl"
 type = "binary"
 src = "https://github.com/Ewwii-sh/statictranspl.git"
 build = "cargo build --release"
-files = ["target/release/statictranspl"] # binary
+files = ["target/release/stplc"] # binary
