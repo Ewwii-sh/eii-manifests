@@ -2,6 +2,6 @@
 name = "staticscript"
 type = "binary"
 src = "https://github.com/Ewwii-sh/statictranspl.git"
-commit-hash = "be51216187f51df99d8729bf038474da2ae7ee7d"
+commit = "be51216187f51df99d8729bf038474da2ae7ee7d"
 build = "cargo build --release"
 files = ["target/release/stsc"] # binary
