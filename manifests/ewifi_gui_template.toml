@@ -1,0 +1,5 @@
+[metadata]
+name = "ewifi_gui_template"
+type = "theme"
+src = "https://github.com/Ewwii-sh/ewifi_gui_template.git"
+files = ["ewwii.scss", "ewwii.rhai", "psswd_dialog.rhai", { src = "scripts/*" }, { src = "helpers/*" }]
