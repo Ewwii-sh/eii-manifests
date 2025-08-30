@@ -1,6 +1,0 @@
-[metadata]
-name = "ewwii"
-type = "binary"
-src = "https://github.com/Ewwii-sh/ewwii.git"
-build = "cargo build --release"
-files = ["target/release/ewwii"]
