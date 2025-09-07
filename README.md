@@ -89,6 +89,7 @@ files = [
 name = "foo"
 type = "binary"
 src = "https://github.com/repo/foo.git"
+commit = "...omitted"
 build = "cargo build --release"
 files = ["target/release/foo"]
 ```
@@ -100,6 +101,7 @@ files = ["target/release/foo"]
 name = "bar"
 type = "library"
 src = "https://github.com/repo/bar.git"
+commit = "...omitted"
 files = ["./src/foo.rhai", "./src/foo2.rhai", "./src/baz.rhai"]
 ```
 
@@ -110,6 +112,7 @@ files = ["./src/foo.rhai", "./src/foo2.rhai", "./src/baz.rhai"]
 name = "baz"
 type = "theme"
 src = "https://github.com/repo/baz.git"
+commit = "...omitted"
 files = ["./src/foo.scss", "./src/bar.css", "./src/ewwii.scss"]
 ```
 
