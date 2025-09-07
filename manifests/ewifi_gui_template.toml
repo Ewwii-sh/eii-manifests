@@ -2,4 +2,5 @@
 name = "ewifi_gui_template"
 type = "theme"
 src = "https://github.com/Ewwii-sh/ewifi_gui_template.git"
+commit = "f8847bc1c1f3da62e631a9265916f8bca357906f"
 files = ["ewwii.scss", "ewwii.rhai", "psswd_dialog.rhai", { src = "scripts/*" }, { src = "helpers/*" }]
