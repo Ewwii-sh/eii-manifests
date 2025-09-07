@@ -40,6 +40,7 @@ Here’s the **core `[metadata]` structure**:
 name = "your_package_name"
 type = "binary" # or "library" / "theme"
 src = "https://github.com/yourusername/yourrepo.git"
+commit = "z8847bc1c1f3aa62363129265b16f8aca357906f"
 build = "optional build command, e.g., cargo build --release"
 files = ["list of files to install"]
 ```
@@ -53,6 +54,7 @@ files = ["list of files to install"]
   * `library` --> `~/.eiipm/lib/<libname>/`
   * `theme` --> installed in the current working directory.
 * **src:** GitHub URL of the repository. Use HTTPS to avoid SSH complications.
+* **commit:** The commit the commit that eiipm will install.
 * **build:** Optional. Any command needed to compile/build the package before installation.
 * **files:** Crucial. Lists **exactly** what should be installed.
 
