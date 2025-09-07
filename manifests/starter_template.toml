@@ -3,3 +3,4 @@ name = "starter_template"
 type = "theme"
 src = "https://github.com/Ewwii-sh/starter_template.git"
 files = ["ewwii.scss", "ewwii.rhai", "ewwii-bar.png", { src = "scripts/*" }]
+commit = "e0f5608d07db09473c754bc615633f6ad97b20b3"
