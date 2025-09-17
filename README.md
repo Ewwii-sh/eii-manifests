@@ -1,6 +1,6 @@
 # eii-manifests
 
-Manifest files that **eiipm** will use to install a package.
+Manifest files that **eiipm** will interact with for package information.
 
 Here is a simple digram showing how **eiipm** uses **eii-manifests**:
 
