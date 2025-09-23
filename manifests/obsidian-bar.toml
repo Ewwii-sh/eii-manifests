@@ -1,0 +1,6 @@
+[metadata]
+name = "obsidian-bar"
+type = "theme"
+src = "https://github.com/Ewwii-sh/obsidian-bar.git"
+commit = "b5bc5219035bc63fbe2d41dbe252b4e58a8ba01b"
+files = ["ewwii.scss", "ewwii.rhai", { src = "scripts/*" }]
