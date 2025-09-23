@@ -1,0 +1,7 @@
+[metadata]
+name = "xmlman"
+type = "binary"
+src = "https://github.com/Ewwii-sh/xmlman.git"
+commit = "5d2291a6dfafbb5182576726ff7bc44eb4e5ac56"
+build = "cargo build --release"
+files = ["target/release/xmlman"] # binary
