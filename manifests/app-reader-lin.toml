@@ -1,0 +1,6 @@
+[metadata]
+name = "Application Reader Linux"
+type = "library"
+src = "https://github.com/Ewwii-sh/app-reader-lin.git"
+commit = "7fb2d4860ad33cfa59095518a3b49cdd348e7544"
+files = ["app-reader-lin.rhai"]
